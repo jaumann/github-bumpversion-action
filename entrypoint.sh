@@ -10,17 +10,6 @@ cd "${GITHUB_WORKSPACE}/${source}" || return
 # get latest tag that looks like a semver (with or without v)
 git fetch --tags
 tag=$(git for-each-ref --sort=-v:refname --count=1 --format '%(refname)' refs/tags/[0-9]*.[0-9]*.[0-9]* refs/tags/v[0-9]*.[0-9]*.[0-9]* | cut -d / -f 3-)
-tag_commit=$(git rev-list -n 1 "$tag")
-
-# get current commit hash for tag
-commit=$(git rev-parse HEAD)
-
-if [ "$tag_commit" == "$commit" ]; then
-  echo "No new commits since previous tag. Skipping..."
-  echo ::set-output name=tag::"$tag"
-  exit 0
-fi
-
 
 # get commit logs and determine home to bump the version
 # supports #major, #minor, #patch (anything else will be 'minor')
@@ -31,6 +20,16 @@ then
   log=$(git log --pretty='%B')
 else
   log=$(git log "$tag"..HEAD --pretty='%B')
+  tag_commit=$(git rev-list -n 1 "$tag")
+fi
+
+# get current commit hash for tag
+commit=$(git rev-parse HEAD)
+
+if [ "$tag_commit" == "$commit" ]; then
+  echo "No new commits since previous tag. Skipping..."
+  echo ::set-output name=tag::"$tag"
+  exit 0
 fi
 
 case "$log" in
@@ -59,5 +58,7 @@ if [ "$dryrun" = true ]; then
   echo "Dryrun is set to true. Exiting..."
   exit 0
 else
+  git config --global user.email "bumpversion@github-actions"
+  git config --global user.name "BumpVersion Action"
   bumpversion "$part" --verbose
 fi
