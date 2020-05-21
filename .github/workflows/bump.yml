@@ -8,8 +8,8 @@ jobs:
     name: Bump Version
     runs-on: ubuntu-latest
     outputs:
-      new_ver: ${{ steps.bump.outputs.old_ver }}
-      old_ver: ${{ steps.bump.outputs.new_ver }}
+      new_ver: ${{ steps.bump.outputs.new_ver }}
+      old_ver: ${{ steps.bump.outputs.old_ver }}
       part: ${{ steps.bump.outputs.part }}
     steps:
       - uses: actions/checkout@v2
