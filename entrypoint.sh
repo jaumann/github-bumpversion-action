@@ -3,7 +3,7 @@
 # Configuration
 default_semvar_bump=${DEFAULT_BUMP:-patch}
 source=${SOURCE:-.}
-dryrun=${DRY_RUN:-true}
+dryrun=${DRY_RUN:-false}
 
 cd "${GITHUB_WORKSPACE}/${source}" || return
 

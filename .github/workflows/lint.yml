@@ -9,4 +9,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Lint Code Base
-        uses: github/super-linter@v1.0.0
+        uses: github/super-linter@master
