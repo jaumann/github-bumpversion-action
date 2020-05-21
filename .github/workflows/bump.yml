@@ -7,9 +7,14 @@ jobs:
   bump-version:
     name: Bump Version
     runs-on: ubuntu-latest
+    outputs:
+      new_ver: ${{ steps.bump.outputs.old_ver }}
+      old_ver: ${{ steps.bump.outputs.new_ver }}
+      part: ${{ steps.bump.outputs.part }}
     steps:
       - uses: actions/checkout@v2
       - name: Bump version
+        id: bump
         uses: ./
       - name: Push changes
         uses: ad-m/github-push-action@master
