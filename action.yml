@@ -1,0 +1,16 @@
+name: 'Github Bumpversion Action'
+description: 'Use the bumpversion utility in a Github Action'
+author: 'Jon Aumann'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+outputs:
+  new_ver:
+    description: 'The new version after running bumpversion'
+  old_ver:
+    description: 'The previous version before running bumpversion'
+  part:
+    description: 'The part of version which was bumped'
+branding:
+  icon: 'chevrons-up'
+  color: 'blue'

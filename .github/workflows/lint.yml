@@ -1,0 +1,12 @@
+name: Lint Code Base
+on:
+  push:
+    branches-ignored:
+      - master
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Lint Code Base
+        uses: github/super-linter@v1.0.0
