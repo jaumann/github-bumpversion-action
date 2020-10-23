@@ -67,5 +67,5 @@ if [ "$dryrun" = true ]; then
 else
   git config --global user.email "bumpversion@github-actions"
   git config --global user.name "BumpVersion Action"
-  bumpversion "$part" --verbose
+  bumpversion "$part" --new-version="$new_version" --verbose
 fi
