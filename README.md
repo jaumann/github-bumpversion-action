@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Bump version and push tag
-        uses: jaumann/github-tag-action@0.0.6
+        uses: jaumann/github-bumpversion-action@v0.0.7
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Push changes
@@ -39,6 +39,7 @@ jobs:
 * **DEFAULT_BUMP** *(optional)* - Which type of bump to use when none explicitly provided (default: `minor`).
 * **SOURCE** *(optional)* - Operate on a relative path under $GITHUB_WORKSPACE.
 * **DRY_RUN** *(optional)* - Determine the next version without tagging the branch. The workflow can use the outputs `new_tag` and `tag` in subsequent steps. Possible values are ```true``` and ```false``` (default).
+* **NEW_VERSION** *(optional)* - New version that should be in the files.
 
 
 ### Outputs
