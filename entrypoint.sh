@@ -4,6 +4,7 @@
 default_semvar_bump=${DEFAULT_BUMP:-patch}
 source=${SOURCE:-.}
 dryrun=${DRY_RUN:-false}
+new_version=${NEW_VERSION:-""}
 
 cd "${GITHUB_WORKSPACE}/${source}" || return
 
@@ -39,7 +40,13 @@ case "$log" in
   * ) part="$default_semvar_bump";;
 esac
 
-raw_output=$(bumpversion --list "$part" --dry-run)
+# check if new version is already specified
+if [ -z "$new_version" ]; then
+  raw_output=$(bumpversion --list "$part" --dry-run)
+else
+  raw_output=$(bumpversion --list "$part" --dry-run --new-version="$new_version")
+fi
+
 old_version=$(echo "$raw_output" | grep -o 'current_version=\S*' | cut -d= -f2)
 new_version=$(echo "$raw_output" | grep -o 'new_version=\S*' | cut -d= -f2)
 
@@ -60,5 +67,5 @@ if [ "$dryrun" = true ]; then
 else
   git config --global user.email "bumpversion@github-actions"
   git config --global user.name "BumpVersion Action"
-  bumpversion "$part" --verbose
+  bumpversion "$part" --new-version="$new_version" --verbose
 fi
