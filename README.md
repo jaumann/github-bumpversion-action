@@ -44,8 +44,8 @@ jobs:
 
 ### Outputs
 
-* **new_tag** - The value of the newly created tag.
-* **old_tag** - The value of the previous tag.
+* **new_ver** - The value of the newly created tag.
+* **old_ver** - The value of the previous tag.
 * **part** - The part of version which was bumped.
 
 > ***Note:*** This action creates a [lightweight tag](https://developer.github.com/v3/git/refs/#create-a-reference).
