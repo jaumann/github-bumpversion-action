@@ -36,7 +36,7 @@ jobs:
 **Environment Variables**
 
 * **GITHUB_TOKEN** ***(required)*** - Required for permission to tag the repo.
-* **DEFAULT_BUMP** *(optional)* - Which type of bump to use when none explicitly provided (default: `minor`).
+* **DEFAULT_BUMP** *(optional)* - Which type of bump to use when none explicitly provided (default: `patch`).
 * **SOURCE** *(optional)* - Operate on a relative path under $GITHUB_WORKSPACE.
 * **DRY_RUN** *(optional)* - Determine the next version without tagging the branch. The workflow can use the outputs `new_tag` and `tag` in subsequent steps. Possible values are ```true``` and ```false``` (default).
 * **NEW_VERSION** *(optional)* - New version that should be in the files.
