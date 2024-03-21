@@ -53,9 +53,9 @@ new_version=$(echo "$raw_output" | grep -o 'new_version=\S*' | cut -d= -f2)
 # We should have all the information we need by this point
 # Set Outputs and log information
 
-echo ::set-output name=old_ver::"$old_version"
-echo ::set-output name=new_ver::"$new_version"
-echo ::set-output name=part::"$part"
+echo "old_ver=$old_version" >> "$GITHUB_OUTPUT"
+echo "new_ver=$new_version" >> "$GITHUB_OUTPUT"
+echo "part=$part" >> "$GITHUB_OUTPUT"
 
 echo "Semantic Version Part to Bump: $part"
 echo "Current Version: $old_version"
