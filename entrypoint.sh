@@ -6,6 +6,8 @@ source=${SOURCE:-.}
 dryrun=${DRY_RUN:-false}
 new_version=${NEW_VERSION:-""}
 
+git config --global --add safe.directory /github/workspace 
+
 cd "${GITHUB_WORKSPACE}/${source}" || return
 
 # get latest tag that looks like a semver (with or without v)
