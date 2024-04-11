@@ -29,7 +29,7 @@ commit=$(git rev-parse HEAD)
 
 if [ "$tag_commit" == "$commit" ]; then
   echo "No new commits since previous tag. Skipping..."
-  echo ::set-output name=tag::"$tag"
+  echo "tag=$tag" >> "$GITHUB_OUTPUT"
   exit 0
 fi
 
