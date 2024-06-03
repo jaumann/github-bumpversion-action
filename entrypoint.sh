@@ -1,5 +1,7 @@
 #!/bin/bash
 
+chown -R root: /github/workspace
+
 # Configuration
 default_semvar_bump=${DEFAULT_BUMP:-patch}
 source=${SOURCE:-.}
@@ -53,9 +55,7 @@ new_version=$(echo "$raw_output" | grep -o 'new_version=\S*' | cut -d= -f2)
 # We should have all the information we need by this point
 # Set Outputs and log information
 
-echo "old_ver=$old_version" >> "$GITHUB_OUTPUT"
-echo "new_ver=$new_version" >> "$GITHUB_OUTPUT"
-echo "part=$part" >> "$GITHUB_OUTPUT"
+{ echo "old_ver=$old_version"; echo "new_ver=$new_version"; echo "part=$part"; } >> "$GITHUB_OUTPUT"
 
 echo "Semantic Version Part to Bump: $part"
 echo "Current Version: $old_version"
