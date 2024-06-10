@@ -2,10 +2,9 @@
 
 A Github Action to use the [bumpversion](https://pypi.org/project/bumpversion/) application to bump and tag branches
 
-![Lint Status](https://github.com/jaumann/github-bumpversion-action/workflows/Lint%20Code%20Base/badge.svg)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/jaumann/github-bumpversion-action?label=Github%20Release)](https://github.com/jaumann/github-bumpversion-action/releases)
-[![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/jaumann/github-bumpversion-action?sort=semver&label=Docker%20Version)](https://hub.docker.com/r/jaumann/github-bumpversion-action)
-[![License](https://img.shields.io/github/license/jaumann/github-bumpversion-action)](LICENSE)
+![Lint Status](https://github.com/QustodioPablo/github-bumpversion-action/workflows/Lint%20Code%20Base/badge.svg)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/QustodioPablo/github-bumpversion-action?label=Github%20Release)](https://github.com/QustodioPablo/github-bumpversion-action/releases)
+[![License](https://img.shields.io/github/license/QustodioPablo/github-bumpversion-action)](LICENSE)
 
 ## Usage
 
@@ -21,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Bump version and push tag
-        uses: jaumann/github-bumpversion-action@v0.0.7
+        uses: QustodioPablo/github-bumpversion-action@v0.0.7
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Push changes
@@ -44,8 +43,8 @@ jobs:
 
 ### Outputs
 
-* **new_tag** - The value of the newly created tag.
-* **old_tag** - The value of the previous tag.
+* **new_ver** - The value of the newly created tag.
+* **old_ver** - The value of the previous tag.
 * **part** - The part of version which was bumped.
 
 > ***Note:*** This action creates a [lightweight tag](https://developer.github.com/v3/git/refs/#create-a-reference).
@@ -72,3 +71,4 @@ jobs:
 ### Credits
 
 [anotherNick/github-tag-action](https://github.com/anothrNick/github-tag-action/) - I used this repo extensively as a base for this project
+[jaumann/github-bumpversion-action](https://github.com/jaumann/github-bumpversion-action) - Forked action from this project
