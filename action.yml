@@ -1,4 +1,4 @@
-name: 'Simple-Bumpversion'
+name: 'Simple Bumpversion'
 description: 'Use the bumpversion utility in a Github Action'
 author: 'Pablo Fernandez'
 runs:

@@ -71,4 +71,5 @@ jobs:
 ### Credits
 
 [anotherNick/github-tag-action](https://github.com/anothrNick/github-tag-action/) - I used this repo extensively as a base for this project
+
 [jaumann/github-bumpversion-action](https://github.com/jaumann/github-bumpversion-action) - Forked action from this project
